@@ -19,11 +19,11 @@ listint_t *insert_node(listint_t **head, int number)
 			break;
 		temp = temp->next;
 	}
+	if (temp == NULL)
+		position++;
 	temp = *head;
 	if (!temp2)
-	{
 		return (NULL);
-	}
 	while (temp != NULL)
 	{
 		temp = temp->next;
@@ -34,7 +34,6 @@ listint_t *insert_node(listint_t **head, int number)
 		free(temp2);
 		return (NULL);
 	}
-	/* if list is empty */
 	if (*head == NULL || position == 1)
 	{
 		temp2->n = number;
