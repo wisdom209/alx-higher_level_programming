@@ -5,3 +5,6 @@ def print_reverse():
             print("{0:c}".format(i), end="")
         else:
             print("{0:c}".format(i-32), end="")
+
+
+print_reverse()
