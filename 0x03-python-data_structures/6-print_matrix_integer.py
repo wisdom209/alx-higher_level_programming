@@ -6,7 +6,7 @@ if __name__ == '__main__':
             list_len = len(a_list)
 
             if len(a_list) == 0:
-                print()
+                print("".format())
             else:
                 for x in a_list:
                     if a == list_len - 1:
