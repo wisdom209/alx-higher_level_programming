@@ -1,5 +1,14 @@
 #!/usr/bin/python3
 def add_tuple(tuple_a=(), tuple_b=()):
+    """add corresponding elements of two tuples
+
+    Args:
+        tuple_a (tuple, optional): first tuple. Defaults to ().
+        tuple_b (tuple, optional): second tuple. Defaults to ().
+
+    Returns:
+        tuple: addition of tuple_a and tuple_b
+    """
     a_len = len(tuple_a)
     b_len = len(tuple_b)
     x_a = 0

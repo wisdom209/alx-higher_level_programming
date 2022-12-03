@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 
 def print_matrix_integer(matrix=[[]]):
-    """_summary_: prints elements in a matrix
+    """Prints elements in a matrix
     Args:
-        matrix (list, optional): _description_. Defaults to [[]].
+        matrix (list, optional): matrix to print. Defaults to [[]].
     """
     if (matrix):
         for a_list in matrix:
