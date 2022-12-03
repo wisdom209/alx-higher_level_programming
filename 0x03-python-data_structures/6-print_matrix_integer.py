@@ -1,6 +1,10 @@
 #!/usr/bin/python3
 
 def print_matrix_integer(matrix=[[]]):
+    """_summary_: prints elements in a matrix
+    Args:
+        matrix (list, optional): _description_. Defaults to [[]].
+    """
     if (matrix):
         for a_list in matrix:
             a = 0
