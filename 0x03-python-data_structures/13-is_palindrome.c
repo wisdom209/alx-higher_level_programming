@@ -3,27 +3,29 @@
 #include "lists.h"
 
 /**
- * get_value_at_position - Get value at a position
- * @head: head of list
- * @position: position to get
+ * reverse_list - reverses a linked list
+ * @head: double pointer to start of list
  *
  * Return: int
  */
-int get_value_at_position(listint_t *head, int position)
+listint_t *reverse_list(listint_t **head)
 {
-	listint_t *temp = head;
-	int counter = -1;
-	int value = 0;
+	listint_t *current, *prev, *next;
 
-	while (temp != NULL)
+	prev = NULL;
+	current = *head, next = *head;
+
+	while (current != NULL)
 	{
-		counter++;
-		value = temp->n;
-		temp = temp->next;
-		if (counter == position)
-			break;
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
 	}
-	return (value);
+
+	*head = prev;
+
+	return (*(head));
 }
 
 /**
@@ -34,27 +36,42 @@ int get_value_at_position(listint_t *head, int position)
  */
 int is_palindrome(listint_t **head)
 {
-	int length = 0, i = 0;
-	listint_t *temp = *head;
+	listint_t *fast = *head, *slow = *head;
+	listint_t *middle_start, *beginning_start;
 
-	if (head == NULL)
+	if (fast == NULL || fast->next == NULL || fast->next->next == NULL)
 		return (1);
 
-	while (temp != NULL)
+	while (1)
 	{
-		temp = temp->next;
-		length++;
+		fast = fast->next->next;
+
+		if (fast == NULL)
+		{
+			beginning_start = slow->next;
+			break;
+		}
+
+		if (fast->next == NULL)
+		{
+			beginning_start = slow->next->next;
+			break;
+		}
+		slow = slow->next;
 	}
 
-	if (length == 1)
-		return (1);
+	slow->next = NULL;
+	middle_start = reverse_list(&beginning_start);
+	beginning_start = *head;
 
-	for (i = 0; i < length / 2; i++)
+	while (middle_start != NULL && beginning_start != NULL)
 	{
-		int left_check = get_value_at_position(*head, i);
-		int right_check = get_value_at_position(*head, length - i - 1);
-
-		if (left_check != right_check)
+		if (middle_start->n == beginning_start->n)
+		{
+			middle_start = middle_start->next;
+			beginning_start = beginning_start->next;
+		}
+		else
 			return (0);
 	}
 
