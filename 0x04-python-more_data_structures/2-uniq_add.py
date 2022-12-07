@@ -16,4 +16,9 @@ def uniq_add(my_list=[]):
         uniq_sum = 0
         for x in my_list:
             uniq_sum += x
-            return (uniq_sum)
+        return (uniq_sum)
+
+
+my_list = [1, 2, 3, 1, 4, 2, 5]
+result = uniq_add(my_list)
+print("Result: {:d}".format(result))
