@@ -17,3 +17,5 @@ def uniq_add(my_list=[]):
         for x in my_list:
             uniq_sum += x
         return (uniq_sum)
+    else:
+        return 0
