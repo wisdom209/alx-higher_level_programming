@@ -9,4 +9,4 @@ def best_score(a_dictionary):
         int: max integer
     """
     if (a_dictionary):
-        return sorted([k for k in a_dictionary.keys()], reverse=True)[0]
+        return sorted(a_dictionary.items(), reverse=True, key=lambda x: x[1])[0][1]
