@@ -6,7 +6,7 @@ def best_score(a_dictionary):
         a_dictionary (dict): dictionary
 
     Returns:
-        int: max integer
+        string: max integer key
     """
     if (a_dictionary):
         d = sorted(a_dictionary.items(), reverse=True, key=lambda x: x[1])
