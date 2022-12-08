@@ -8,7 +8,7 @@ def roman_to_int(roman_string):
 
     Returns:
         int: roman numeral in digits
-    """    
+    """
     if isinstance(roman_string, str) is False or roman_string is None:
         return 0
     sum = 0
@@ -26,4 +26,3 @@ def roman_to_int(roman_string):
         else:
             sum = sum + sum_list[i]
     return sum
-
