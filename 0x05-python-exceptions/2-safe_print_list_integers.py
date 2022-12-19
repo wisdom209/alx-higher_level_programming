@@ -12,6 +12,5 @@ def safe_print_list_integers(my_list=[], x=0):
             continue
         except NameError:
             continue
-    if num_printed != 0:
-        print()
+    print()
     return num_printed
