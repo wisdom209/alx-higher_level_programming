@@ -8,5 +8,5 @@ def raise_exception_msg(message=""):
 
     Raises:
         NameError: Exception raised
-    """    
+    """
     raise NameError(message)

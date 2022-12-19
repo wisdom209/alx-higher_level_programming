@@ -3,6 +3,14 @@ import sys
 
 
 def safe_print_integer_err(value):
+    """Print an integer without Exceptions
+
+    Args:
+        value (int): Should be an integer
+
+    Returns:
+        Boolean: True if there is no exception
+    """
     try:
         print("{:d}".format(value))
         return True
