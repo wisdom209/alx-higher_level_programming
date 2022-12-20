@@ -64,7 +64,7 @@ class Square:
         return self.__position
 
     @position.setter
-    def size(self, position=(0, 0)):
+    def position(self, position=(0, 0)):
         """`size` setter
 
         Args:
