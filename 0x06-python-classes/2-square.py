@@ -17,8 +17,8 @@ class Square:
         """initializes the class
 
         Args:
-            size (int, optional): size fo square. Defaults to 0.
-        """        
+            size (int, optional): size of square. Defaults to 0.
+        """
         if (isinstance(size, int) and size < 0):
             raise (ValueError("size must be >=0"))
         elif (isinstance(size, int) is not True):
