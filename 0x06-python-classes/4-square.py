@@ -8,7 +8,7 @@ class Square:
     """Square class
 
     private instance field(s) : size
-    methods: __init__
+    methods: __init__, area
 
     """
 
