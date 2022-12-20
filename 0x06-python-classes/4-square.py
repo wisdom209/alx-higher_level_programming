@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-A module that sets size of square as private field
-
+A blueprint for square objects
 """
 
 
