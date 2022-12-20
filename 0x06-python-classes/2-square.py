@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-_summary_
+A module that sets size of square as private field
 
 """
 
