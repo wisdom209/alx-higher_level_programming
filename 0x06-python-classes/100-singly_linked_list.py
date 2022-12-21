@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""This module implements a single linked list"""
+
 
 class Node:
     def __init__(self, data, next_node=None):
@@ -24,9 +26,6 @@ class Node:
         if ((type(node) is Node or Node is None) is False):
             raise TypeError("next_node must be a Node object")
         self.__next_node = node
-
-    def __lt__(self, other):
-        return self.__data < other.data
 
 
 class SinglyLinkedList:
