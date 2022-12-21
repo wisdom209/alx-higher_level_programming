@@ -46,7 +46,7 @@ class Node:
         return self.__next_node
 
     @next_node.setter
-    def next_node(self, node):
+    def next_node(self, value):
         """next node setter
 
         Args:
@@ -55,9 +55,10 @@ class Node:
         Raises:
             TypeError: next_node must be a Node object
         """
-        if ((type(node) is Node or Node is None) is False):
+        if type(value) is Node or value is None:
+            self.__next_node = value
+        else:
             raise TypeError("next_node must be a Node object")
-        self.__next_node = node
 
 
 class SinglyLinkedList:
