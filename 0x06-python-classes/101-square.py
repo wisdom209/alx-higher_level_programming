@@ -115,8 +115,7 @@ class Square:
         """
         strList = []
         if (self.__size == 0):
-            strList.append('\n')
-            return "".join(strList)
+            return ""
         for i in range(self.__position[1]):
             strList.append('\n')
         for i in range(self.__size):
