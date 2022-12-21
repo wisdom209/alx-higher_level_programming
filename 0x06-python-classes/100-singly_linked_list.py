@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 class Node:
-
     def __init__(self, data, next_node=None):
         self.__data = data
         self.__next_node = next_node
@@ -18,58 +17,61 @@ class Node:
 
     @property
     def next_node(self):
-        return self.next_node
+        return self.__next_node
 
     @next_node.setter
-    def data(self, node):
+    def next_node(self, node):
         if ((type(node) is Node or Node is None) is False):
             raise TypeError("next_node must be a Node object")
-        self.__data = node
+        self.__next_node = node
 
     def __lt__(self, other):
         return self.__data < other.data
 
 
 class SinglyLinkedList:
+    """Single linked list class
+    """
 
     def __init__(self, head=None):
-        self.__head = head
+        """init the class
+
+        Args:
+            head (Node, optional): head Node for list. Defaults to None.
+        """
+        self.__head = None
+
+    def __str__(self):
+        """string representation of list
+
+        Returns:
+            str: Linked list elements
+        """
+        temp = self.__head
+        sll_str = ""
+        if self.__head is not None:
+            while temp is not None:
+                sll_str += str(temp.data) + "\n"
+                temp = temp.next_node
+        return sll_str[:-1]
 
     def sorted_insert(self, value):
-        sorted_list = []
-        temp = self.__head
-        while (temp.next_node is not None):
-            sorted_list.append(temp)
-            temp = temp.next_node
-        sorted_list.append(Node(value, None))
-        
-        sorted_list = sorted(sorted_list)
+        """Adds elements to list in sorted order
 
-    
-        temp = self.__head
-        for i in sorted_list:
-            temp = i
-            temp = temp.next
-        return self.__head
-    
-    def print(self):
-        while(self.__head is None):
-            print(self.__head.data)
-            self.__head = self.__head.new_node
-
-
-
-
-sll = SinglyLinkedList()
-sll.sorted_insert(2)
-sll.sorted_insert(5)
-sll.sorted_insert(3)
-sll.sorted_insert(10)
-sll.sorted_insert(1)
-sll.sorted_insert(-4)
-sll.sorted_insert(-3)
-sll.sorted_insert(4)
-sll.sorted_insert(5)
-sll.sorted_insert(12)
-sll.sorted_insert(3)
-print(sll)
+        Args:
+            value (int): Data to add to list
+        """
+        if (self.__head is None or self.__head.data >= value):
+            self.__head = Node(value, self.__head)
+        else:
+            temp = self.__head
+            if (value < self.__head.data):
+                self.__head = Node(value, temp)
+                return
+            else:
+                while (temp.next_node is not None):
+                    if (temp.next_node.data < value):
+                        temp = temp.next_node
+                    else:
+                        break
+                temp.next_node = Node(value, temp.next_node)

@@ -60,7 +60,7 @@ class Square:
         """checks equality of areas
 
         Args:
-            object (Square): other square area
+            object (Square): Square object to compare to
 
         Returns:
             Boolean: True
@@ -71,7 +71,7 @@ class Square:
         """checks if areas are not equal
 
         Args:
-            object (Square): other square area
+            object (Square): Square object to compare to
 
         Returns:
             Boolean: True
@@ -82,7 +82,7 @@ class Square:
         """checks if area is greater than other area
 
         Args:
-            object (Square): other square area
+            object (Square): Square object to compare to
 
         Returns:
             Boolean: True
@@ -93,7 +93,7 @@ class Square:
         """checks if area is greater than or equal other area
 
         Args:
-            object (Square): other square area
+            object (Square): Square object to compare to
 
         Returns:
             Boolean: True
@@ -104,7 +104,7 @@ class Square:
         """checks if area is less than other area
 
         Args:
-            object (Square): other square area
+            object (Square): Square object to compare to
 
         Returns:
             Boolean: True
@@ -115,7 +115,7 @@ class Square:
         """checks if area is less than or equal other area
 
         Args:
-            object (Square): other square area
+            object (Square): Square object to compare to
 
         Returns:
             Boolean: True
