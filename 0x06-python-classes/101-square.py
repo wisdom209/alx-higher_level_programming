@@ -109,4 +109,21 @@ class Square:
                     print(" " * self.__position[0], end="")
                 print("#", end="")
             print()
-    
+
+    def __str__(self):
+        """prints the square with # symbol
+        """
+        strList = []
+        if (self.__size == 0):
+            strList.append('\n')
+            return "".join(strList)
+        for i in range(self.__position[1]):
+            strList.append('\n')
+        for i in range(self.__size):
+            for j in range(self.__size):
+                if (j == 0):
+                    strList.append(" " * self.__position[0])
+                strList.append("#")
+            if (i != self.__size - 1):
+                strList.append('\n')
+        return "".join(strList)
