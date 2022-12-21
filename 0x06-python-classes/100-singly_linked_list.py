@@ -4,25 +4,57 @@
 
 class Node:
     def __init__(self, data, next_node=None):
+        """init class
+
+        Args:
+            data (int): int element
+            next_node (Node, optional): List NOde. Defaults to None.
+        """
         self.__data = data
         self.__next_node = next_node
 
     @property
     def data(self):
+        """data getter
+
+        Returns:
+            int: data
+        """
         return self.__data
 
     @data.setter
     def data(self, value):
+        """data setter
+
+        Args:
+            value (int): data
+
+        Raises:
+            TypeError: value is not an int
+        """
         if (type(value) is not int):
             raise TypeError("data must be an integer")
         self.__data = value
 
     @property
     def next_node(self):
+        """next_node getter
+
+        Returns:
+            Node: gets next node
+        """
         return self.__next_node
 
     @next_node.setter
     def next_node(self, node):
+        """next node setter
+
+        Args:
+            node (Node): next node
+
+        Raises:
+            TypeError: next_node must be a Node object
+        """
         if ((type(node) is Node or Node is None) is False):
             raise TypeError("next_node must be a Node object")
         self.__next_node = node
