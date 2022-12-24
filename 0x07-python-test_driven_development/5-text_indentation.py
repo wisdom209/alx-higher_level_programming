@@ -5,10 +5,17 @@ import doctest
 
 
 def text_indentation(text):
-    """prints a text with 2 new lines after each of these characters: .,
-     ? and :"""
+    """This module prints a text with 2 new lines after each of these
+    characters: ., ? and :
+
+    Args:
+        text (str): string to print
+
+    Raises:
+        TypeError: test must be a string
+    """
     if (type(text) is not str):
-        raise TypeError("text must be a string")
+        raise TypeError("test must be a string")
 
     i = 0
     for _ in range(len(text)):
