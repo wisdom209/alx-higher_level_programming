@@ -30,4 +30,4 @@ def add_integer(a, b=98):
 
 
 if __name__ == '__main__':
-    doctest.testfile("./tests/test_0-add_integer.txt")
+    doctest.testfile("./tests/0-add_integer.txt")
