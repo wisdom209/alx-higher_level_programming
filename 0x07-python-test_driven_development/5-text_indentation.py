@@ -1,10 +1,12 @@
 #!/usr/bin/python3
-"""This module prints a text with 2 new lines after each of these characters: ., ? and :"""
+"""This module prints a text with 2 new lines after each of these
+characters: ., ? and :"""
 import doctest
 
 
 def text_indentation(text):
-    """prints a text with 2 new lines after each of these characters: ., ? and :"""
+    """prints a text with 2 new lines after each of these characters: .,
+     ? and :"""
     if (type(text) is not str):
         raise TypeError("text must be a string")
 
