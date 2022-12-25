@@ -12,6 +12,18 @@ class TestMaxInteger(unittest.TestCase):
         unittest (class): inherits from unittest
     """
 
+    def test_module_docstring(self):
+        """Tests module for docstring
+        """
+        m = ('6-max_integer').__doc__
+        self.assertTrue(len(m) > 1)
+
+    def test_function_docstring(self):
+        """Test function has a docstring
+        """
+        m = max_integer.__doc__
+        self.assertTrue(len(m) > 1)
+
     def test_max_integer(self):
         """correct test
         """

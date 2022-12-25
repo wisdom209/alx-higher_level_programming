@@ -2,6 +2,15 @@
 
 >>> print_square = __import__("4-print_square").print_square
 
+#check module docstring
+>>> m = __import__('4-print_square').__doc__
+>>> len(m) > 1
+True
+
+#check function docstring
+>>> len(print_square.__doc__) > 1
+True
+
 # Correct Output 1
 >>> print_square(4)
 ####

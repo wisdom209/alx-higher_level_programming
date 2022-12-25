@@ -2,6 +2,16 @@ This testfile test 2-matrix_divided module
 
 >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
 
+#check module docstring
+>>> m = __import__('2-matrix_divided').__doc__
+>>> len(m) > 1
+True
+
+#check function docstring
+>>> len(matrix_divided.__doc__) > 1
+True
+
+
 # Working test
 >>> matrix = [[1, 2, 3], [4, 5, 6]]
 >>> matrix_divided(matrix, 3)

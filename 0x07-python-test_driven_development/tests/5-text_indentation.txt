@@ -2,6 +2,15 @@ This text file tests if a function prints a text with 2 new lines after each of 
 
 >>> text_indentation = __import__('5-text_indentation').text_indentation
 
+#check module docstring
+>>> m = __import__('5-text_indentation').__doc__
+>>> len(m) > 1
+True
+
+#check function docstring
+>>> len(text_indentation.__doc__) > 1
+True
+
 # Correct Output
 >>> text_indentation("""Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? Non autem hoc: igitur ne illud quidem. Fortasse id optimum, sed ubi illud:  Plus semper voluptatis? Teneo, inquit finem illi videri nihil dolere. Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum  rationi oboediens. Si id dicis, vicimus. Inde sermone vario sex illa a Dipylo stadia confecimus. Sin aliud quid voles, postea. Quae animi affectio suum  cuique tribuens atque hanc, quam dico. Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres""")
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -37,5 +46,22 @@ Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres
 Traceback (most recent call last):
 ...
 TypeError: text must be a string
+
+# No args
+>>> text_indentation()
+Traceback (most recent call last):
+...
+TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+# Undefined args
+>>> text_indentation(a)
+Traceback (most recent call last):
+...
+NameError: name 'a' is not defined
+
+>>> text_indentation("a", "b") # doctest: +IGNORE_EXCEPTION_DETAIL
+Traceback (most recent call last):
+    ...
+TypeError
 
 

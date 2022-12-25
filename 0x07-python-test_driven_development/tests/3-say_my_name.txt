@@ -2,6 +2,16 @@ This text file tests the 3-say-my-name.py module
 
 >>> say_my_name = __import__("3-say_my_name").say_my_name
 
+#check module docstring
+>>> m = __import__('3-say_my_name').__doc__
+>>> len(m) > 1
+True
+
+#check function docstring
+>>> len(say_my_name.__doc__) > 1
+True
+
+
 # Correct output 1
 >>> say_my_name("John", "Doe")
 My name is John Doe
