@@ -4,14 +4,27 @@ import doctest
 
 
 def matrix_mul(m_a, m_b):
-    """ Multiplies two matrices
+    """multiplies two matrices
 
     Args:
         m_a (list): matrix a
-        m_b (list): matrix b
+        m_b (list): matric b
+
+    Raises:
+        TypeError: m_a must be a list
+        TypeError: m_b must be a list
+        TypeError: m_a must be a list of lists
+        TypeError: m_b must be a list of lists
+        ValueError: m_a can't be empty
+        ValueError: m_b can't be empty
+        TypeError: m_a should contain only integers or floats
+        TypeError: m_b should contain only integers or floats
+        TypeError: each row of m_a must be of the same size"
+        TypeError: each row of m_b must be of the same size"
+        ValueError: m_a and m_b can't be multiplied
 
     Returns:
-        list: result
+        list: matrix_a * matrix_b
     """
     if type(m_a) is not list:
         raise TypeError("m_a must be a list")
