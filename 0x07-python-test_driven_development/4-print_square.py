@@ -11,7 +11,7 @@ def print_square(size):
         size (int): width of square
 
     Raises:
-        TypeError: size must be an integer 
+        TypeError: size must be an integer
         ValueError: size must be >= 0
     """
     if (type(size) is float and size < 0):
