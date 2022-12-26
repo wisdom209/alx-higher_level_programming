@@ -1,5 +1,8 @@
 This module serves as test file for 0-add_integer.py
 
+# check module exists
+>>> add_integer = __import__('0-add_integer').add_integer
+
 #check module docstring
 >>> m = __import__('0-add_integer').__doc__
 >>> len(m) > 1
