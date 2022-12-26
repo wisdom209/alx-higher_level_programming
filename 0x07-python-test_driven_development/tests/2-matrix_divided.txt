@@ -80,6 +80,7 @@ Traceback (most recent call last):
 ...
 TypeError: Each row of the matrix must have the same size
 
+
 # Divisor must be a number
 >>> matrix = [[1, 2, 3], [4, 5, 6]]
 >>> matrix_divided(matrix, "three")
@@ -87,9 +88,36 @@ Traceback (most recent call last):
 ...
 TypeError: div must be a number
 
+
 # Divisor can't be equal to 0
 >>> matrix = [[1, 2, 3], [4, 5, 6]]
 >>> matrix_divided(matrix, 0)
 Traceback (most recent call last):
 ...
 ZeroDivisionError: division by zero
+
+# empty matrix
+>>> matrix_divided([], 2)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+
+# empty matrix
+>>> matrix_divided([[]], 2)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+# matrix not a rectangle
+>>> matrix_divided([[2, 3], [4, 5, 6]], 2)
+Traceback (most recent call last):
+...
+TypeError: Each row of the matrix must have the same size
+
+
+# matrix contains string
+>>> matrix_divided([[2, 3, 'school']], 2)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
