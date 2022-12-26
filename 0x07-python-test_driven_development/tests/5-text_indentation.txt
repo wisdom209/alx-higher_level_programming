@@ -65,3 +65,72 @@ Traceback (most recent call last):
 TypeError
 
 
+# correct output
+>>> text = "This is a simple string with no special characters"
+>>> text_indentation(text)
+This is a simple string with no special characters
+
+
+# A string with a period, question mark, and colon:
+>>> text = "This is a string with all three special characters. Is it working? Let's find out: it is!"
+>>> text_indentation(text)
+This is a string with all three special characters.
+<BLANKLINE>
+Is it working?
+<BLANKLINE>
+Let's find out:
+<BLANKLINE>
+it is!
+
+
+# A string with multiple periods
+>>> text = "..."
+>>> text_indentation(text)
+.
+<BLANKLINE>
+.
+<BLANKLINE>
+.
+<BLANKLINE>
+
+
+#A string with no spaces after the special characters:
+>>> text = "This is a string with no spaces after the special characters.Is it working?Let's find out:it is!"
+>>> text_indentation(text)
+This is a string with no spaces after the special characters.
+<BLANKLINE>
+Is it working?
+<BLANKLINE>
+Let's find out:
+<BLANKLINE>
+it is!
+
+
+# an empty string
+>>> text = ""
+>>> text_indentation(text)
+
+
+# Only special characters
+>>> text = "?.:"
+>>> text_indentation(text)
+?
+<BLANKLINE>
+.
+<BLANKLINE>
+:
+<BLANKLINE>
+
+
+# String with multiple spaces between words
+>>> text = "This   is a  string with  multiple spaces between  words.  Is it working?  Let's  find out:  it is!"
+>>> text_indentation(text)
+This   is a  string with  multiple spaces between  words.
+<BLANKLINE>
+Is it working?
+<BLANKLINE>
+Let's  find out:
+<BLANKLINE>
+it is!
+
+
