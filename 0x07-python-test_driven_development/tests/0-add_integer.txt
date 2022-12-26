@@ -19,12 +19,17 @@ True
 >>> add_integer(30.5, 2)
 32
 
+>>> add_integer(2147483647, 2147483647)
+4294967294
+
 >>> add_integer(0)
 98
 
 >>> add_integer(-0)
 98
 
+>>> add_integer(2)
+100
 
 >>> add_integer("aba", 3)
 Traceback (most recent call last):
@@ -32,7 +37,19 @@ Traceback (most recent call last):
 TypeError: a must be an integer
 
 
+>>> add_integer(None, None)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+
 >>> add_integer(5, "bee")
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+
+>>> add_integer(5, None)
 Traceback (most recent call last):
 ...
 TypeError: b must be an integer
