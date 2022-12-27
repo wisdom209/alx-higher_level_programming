@@ -39,9 +39,9 @@ void print_python_bytes(PyObject *p)
 
 	for (size_t i = 0; i <= byte_size && i < 10; i++)
 	{
-		if (i < 10)
+		if (i < 10 )
 		{
-			if(i == 9)
+			if(i == 9 || i == byte_size)
 				printf("%02hhx", str[i]);
 			else
 				printf("%02hhx ", str[i]);
