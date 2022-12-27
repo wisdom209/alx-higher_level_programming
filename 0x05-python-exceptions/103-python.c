@@ -40,7 +40,12 @@ void print_python_bytes(PyObject *p)
 	for (size_t i = 0; i <= byte_size && i < 10; i++)
 	{
 		if (i < 10)
-			printf("%02hhx ", str[i]);
+		{
+			if(i == 9)
+				printf("%02hhx", str[i]);
+			else
+				printf("%02hhx ", str[i]);
+		}
 		else
 			printf("00");
 	}
