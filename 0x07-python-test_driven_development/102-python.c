@@ -11,13 +11,14 @@
  */
 void print_python_string(PyObject *p)
 {
-	if (p == NULL)
+	if (p == NULL || !PyUnicode_Check(p))
 	{
 		printf("[.] string object info\n");
 		printf("  [ERROR] Invalid String Object\n");
 	}
-	else if (PyUnicode_Check(p))
+	else
 	{
+
 		const char *type, *value;
 		int len;
 
@@ -37,10 +38,5 @@ void print_python_string(PyObject *p)
 		printf("  type: %s\n", type);
 		printf("  length: %d\n", len);
 		printf("  value: %s\n", value);
-	}
-	else
-	{
-		printf("[.] string object info\n");
-		printf("  [ERROR] Invalid String Object\n");
 	}
 }
