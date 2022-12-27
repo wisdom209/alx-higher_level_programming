@@ -3,9 +3,14 @@
 #include <string.h>
 #include <Python.h>
 
+/**
+ * print_python_string - prints python string in shared lib
+ * @p: Pyobject
+ *
+ * Return: void
+ */
 void print_python_string(PyObject *p)
 {
-	// Check if p is NULL
 	if (p == NULL)
 	{
 		printf("[.] string object info\n");
@@ -13,23 +18,25 @@ void print_python_string(PyObject *p)
 	}
 	else if (PyUnicode_Check(p))
 	{
+		const char *type, *value;
+		int len;
 
 		if (PyUnicode_IS_ASCII(p))
 		{
-			const char *a = PyUnicode_AsUTF8(p);
-			printf("[.] string object info\n");
-			printf("  type: compact ascii\n");
-			printf("  length: %ld\n", strlen(a));
-			printf("  value: %s\n", a);
+			type = "compact ascii";
+			value = PyUnicode_AsUTF8(p);
+			len = strlen(value);
 		}
 		else
 		{
-			const char *a = PyUnicode_AsUTF8(p);
-			printf("[.] string object info\n");
-			printf("  type: compact unicode object\n");
-			printf("  length: %ld\n", PyUnicode_GetLength(p));
-			printf("  value: %s\n", a);
+			type = "compact unicode object";
+			value = PyUnicode_AsUTF8(p);
+			len = PyUnicode_GetLength(p);
 		}
+		printf("[.] string object info\n");
+		printf("  type: %s\n", type);
+		printf("  length: %d\n", len);
+		printf("  value: %s\n", value);
 	}
 	else
 	{
