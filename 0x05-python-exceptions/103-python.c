@@ -113,7 +113,7 @@ void print_python_float(PyObject *p)
 
 		printf("[.] float object info\n");
 
-		if (whole_places >= 16)
+		if (whole_places > 16)
 		{
 			if (dec_places == 0 && whole_places < 20)
 				printf(" value: %.16Lg\n", num);
