@@ -36,6 +36,7 @@ int decimal_len(long double f)
 		f = -f;
 
 	int i = 0;
+
 	while (f != ceil(f) && i < 200)
 	{
 		if (ceil(f) == floor(f))
@@ -105,9 +106,9 @@ void print_python_float(PyObject *p)
 	if (PyFloat_Check(p))
 	{
 		PyFloatObject *item = (PyFloatObject *)p;
-
 		int dec_places = decimal_len(item->ob_fval);
 		int whole_places = whole_len(item->ob_fval);
+
 		long double num = item->ob_fval;
 
 		printf("[.] float object info\n");
@@ -120,7 +121,14 @@ void print_python_float(PyObject *p)
 				printf(" value: %.17Lg\n", num);
 		}
 		else
-			printf("  value: %.17g\n", item->ob_fval);
+		{
+			if (dec_places == 0)
+				printf("  value: %.16Lg.0\n", num);
+			else if (dec_places > 0 && dec_places < 16)
+				printf("  value: %.16Lg\n", num);
+			else
+				printf("  value: %.17Lg\n", num);
+		}
 	}
 	else
 	{
