@@ -63,14 +63,13 @@ void print_python_float(PyObject *p)
 	if (PyFloat_Check(p))
 	{
 		PyFloatObject *item = (PyFloatObject *)p;
-		float f = item->ob_fval;
 
 		printf("[.] float object info\n");
 
-		if (ceil(f) == floor(f))
-			printf("  value: %.1f\n", f);
+		if (ceil(item->ob_fval) == floor(item->ob_fval))
+			printf("  value: %.16g.0\n", item->ob_fval);
 		else
-			printf("  value: %.16g\n", f);
+			printf("  value: %.16g\n", item->ob_fval);
 	}
 	else
 	{
