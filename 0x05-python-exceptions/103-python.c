@@ -125,7 +125,7 @@ void print_python_float(PyObject *p)
 			if (dec_places == 0)
 				printf(" value: %.16Lg.0\n", num);
 			else if (dec_places > 0 && dec_places < 16)
-				printf("[.] float object info\n");
+				printf(" value: %.16Lg\n", num);
 			else
 				printf(" value: %.17Lg\n", num);
 		}
