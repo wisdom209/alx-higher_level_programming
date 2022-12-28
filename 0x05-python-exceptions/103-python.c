@@ -65,12 +65,12 @@ void print_python_bytes(PyObject *p)
 	PyBytesObject *bytes = (PyBytesObject *)p;
 	size_t byte_size = ((PyVarObject *)bytes)->ob_size;
 	char *str = bytes->ob_sval;
-	size_t strlength = strlen(str);
+	size_t strlength = strlen(str), i = 0;
 	char print_str[100];
 	size_t whole_len = byte_size < 10 ? byte_size + 1 : 10;
 
 	fflush(stdout);
-	for (size_t i = 0; i < strlength; i++)
+	for (i = 0; i < strlength; i++)
 		print_str[i] = isprint(str[i]) ? str[i] : '?';
 
 	print_str[strlength] = '\0';
@@ -80,7 +80,7 @@ void print_python_bytes(PyObject *p)
 	printf("  trying string: %s\n", print_str);
 	printf("  first %ld bytes: ", whole_len);
 
-	for (size_t i = 0; i <= byte_size && i < 10; i++)
+	for (i = 0; i <= byte_size && i < 10; i++)
 	{
 		if (i < 10)
 		{
