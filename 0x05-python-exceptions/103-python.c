@@ -39,9 +39,9 @@ void print_python_bytes(PyObject *p)
 
 	for (size_t i = 0; i <= byte_size && i < 10; i++)
 	{
-		if (i < 10 )
+		if (i < 10)
 		{
-			if(i == 9 || i == byte_size)
+			if (i == 9 || i == byte_size)
 				printf("%02hhx", str[i]);
 			else
 				printf("%02hhx ", str[i]);
@@ -63,9 +63,14 @@ void print_python_float(PyObject *p)
 	if (PyFloat_Check(p))
 	{
 		PyFloatObject *item = (PyFloatObject *)p;
+		float f = item->ob_fval;
 
 		printf("[.] float object info\n");
-		printf("  value: %.16g\n", item->ob_fval);
+
+		if (ceil(f) == floor(f))
+			printf("  value: %.1f\n", f);
+		else
+			printf("  value: %.16g\n", f);
 	}
 	else
 	{
