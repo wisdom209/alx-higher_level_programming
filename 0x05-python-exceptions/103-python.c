@@ -1,8 +1,50 @@
 
 #include <Python.h>
 #include <stdio.h>
+#include <math.h>
 #include <stdlib.h>
 #include <ctype.h>
+
+/**
+ * whole_len - Get the significant lenght
+ * @f: floating number
+ *
+ * Return: void
+ */
+int whole_len(long double f)
+{
+	int i = 0;
+
+	while ((f) >= 1)
+	{
+		f = f / 10;
+		i++;
+	}
+
+	return (i);
+}
+
+/**
+ * decimal_len - Get the decimal lenght
+ * @f: floating number
+ *
+ * Return: void
+ */
+int decimal_len(long double f)
+{
+	if (f < 0)
+		f = -f;
+
+	int i = 0;
+	while (f != ceil(f) && i < 200)
+	{
+		if (ceil(f) == floor(f))
+			break;
+		f = f * 10;
+		i++;
+	}
+	return (i);
+}
 
 /**
  * print_python_bytes - print bytes
@@ -64,12 +106,28 @@ void print_python_float(PyObject *p)
 	{
 		PyFloatObject *item = (PyFloatObject *)p;
 
+		int dec_places = decimal_len(item->ob_fval);
+		int whole_places = whole_len(item->ob_fval);
+		long double num = item->ob_fval;
+
 		printf("[.] float object info\n");
 
-		if (ceil(item->ob_fval) == floor(item->ob_fval))
-			printf("  value: %.16g.0\n", item->ob_fval);
+		if (whole_places >= 16)
+		{
+			if (dec_places == 0 && whole_places < 20)
+				printf(" value: %.16Lg\n", num);
+			else
+				printf(" value: %.17Lg\n", num);
+		}
 		else
-			printf("  value: %g\n", item->ob_fval);
+		{
+			if (dec_places == 0)
+				printf("  value: %.16Lg.0\n", num);
+			else if (dec_places > 0 && dec_places < 16)
+				printf("  value: %.16Lg\n", num);
+			else
+				printf("  value: %.17Lg\n", num);
+		}
 	}
 	else
 	{
