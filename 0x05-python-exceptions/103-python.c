@@ -69,7 +69,7 @@ void print_python_float(PyObject *p)
 		if (ceil(item->ob_fval) == floor(item->ob_fval))
 			printf("  value: %.16g.0\n", item->ob_fval);
 		else
-			printf("  value: %.16g\n", item->ob_fval);
+			printf("  value: %g\n", item->ob_fval);
 	}
 	else
 	{
