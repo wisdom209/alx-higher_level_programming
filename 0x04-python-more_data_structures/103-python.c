@@ -18,13 +18,11 @@ void print_python_bytes(PyObject *p)
 		return;
 	}
 	PyBytesObject *bytes = (PyBytesObject *)p;
-	size_t byte_size = ((PyVarObject *)bytes)->ob_size;
 	char *str = bytes->ob_sval, print_str[100];
-	size_t strlength = strlen(str);
+	size_t byte_size = ((PyVarObject *)bytes)->ob_size, strlength = strlen(str);
 	size_t whole_len = byte_size < 10 ? byte_size + 1 : 10;
 
 	fflush(stdout);
-
 	for (size_t i = 0; i < strlength; i++)
 	{
 		if (isprint(str[i]))
@@ -43,7 +41,12 @@ void print_python_bytes(PyObject *p)
 	for (size_t i = 0; i <= byte_size && i < 10; i++)
 	{
 		if (i < 10)
-			printf("%02hhx ", str[i]);
+		{
+			if (i == 9 || i == byte_size)
+				printf("%02x", str[i]);
+			else
+				printf("%02x ", str[i]);
+		}
 		else
 			printf("00");
 	}
