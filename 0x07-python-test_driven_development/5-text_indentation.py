@@ -20,6 +20,11 @@ def text_indentation(text):
     i = 0
     for _ in range(len(text)):
         if (i <= len(text) - 1):
+            if(i == 0):
+                while (text[i] == " "):
+                    i += 1
+                    if i == len(text):
+                        break
             print(text[i], end="")
             if (text[i] == "." or text[i] == "?" or text[i] == ":"):
                 print()
@@ -28,6 +33,8 @@ def text_indentation(text):
                     i += 1
                     while (text[i] == " "):
                         i += 1
+                        if i == len(text):
+                            break
                 else:
                     i += 1
             else:
