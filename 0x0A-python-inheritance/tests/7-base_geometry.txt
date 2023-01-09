@@ -31,7 +31,7 @@ TypeError: name must be an integer
 >>> bg.integer_validator("age", 0)
 Traceback (most recent call last):
 ...
-TypeError: age must be greater than 0
+ValueError: age must be greater than 0
 
 
 >>> bg.integer_validator("my int", 8)
