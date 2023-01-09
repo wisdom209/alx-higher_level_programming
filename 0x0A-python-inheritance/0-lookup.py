@@ -9,3 +9,5 @@ def lookup(obj):
             obj (any): object
     """
     dir(obj)
+
+lookup(int)
