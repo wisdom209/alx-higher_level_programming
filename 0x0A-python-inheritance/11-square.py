@@ -10,7 +10,6 @@ class Square(Rectangle):
     Args:
             Rectangle (Rectangle): Base Class
     """
-
     def __init__(self, size):
         """initializes the Square class
 
@@ -30,12 +29,5 @@ class Square(Rectangle):
         return self.__size ** 2
 
     def __str__(self):
-        """Returns the informal string representation
-        """
+        "informal string representation"
         return f"[Square] {self.__size}/{self.__size}"
-
-
-s = Square(13)
-
-print(s)
-print(s.area())
