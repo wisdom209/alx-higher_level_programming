@@ -1,0 +1,32 @@
+# This file tests 1-my_list.py module
+
+>>> MyList = __import__('1-my_list').MyList
+>>> my_list =  MyList()
+
+#check module doc
+>>> doclen = len(__import__('1-my_list').__doc__)
+>>> doclen > 1
+True
+
+#Check class doc
+>>> classdoclen = len(MyList.__doc__)
+>>> classdoclen > 1
+True
+
+# Check print_sorted function
+>>> my_list.clear()
+>>> my_list.extend([2, 4, 1, 3, 5])
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5]
+
+# Check empty list
+>>> my_list.clear()
+>>> my_list.print_sorted()
+[]
+
+# Check list with single number
+>>> my_list.clear()
+>>> my_list.append(8)
+>>> my_list.print_sorted()
+[8]
+
