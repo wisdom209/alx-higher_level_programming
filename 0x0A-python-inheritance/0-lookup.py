@@ -8,6 +8,4 @@ def lookup(obj):
     Args:
             obj (any): object
     """
-    dir(obj)
-
-lookup(int)
+    print(dir(obj))
