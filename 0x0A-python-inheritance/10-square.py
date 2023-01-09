@@ -16,8 +16,8 @@ class Square(Rectangle):
         Args:
                 size (int): square width
         """
-        super().__init__(size, size)
         self.__size = size
+        super().__init__(size, size)
 
     def area(self):
         """Gets area of a square
