@@ -8,4 +8,4 @@ def add_attribute(new_class, key, value):
     if hasattr(new_class, '__dict__'):
         setattr(new_class, key, value)
     else:
-        raise TypeError("can't add new atttribute")
+        raise TypeError("can't add new attribute")
