@@ -19,3 +19,19 @@ class Rectangle(BaseGeometry):
         super().integer_validator("height", height)
         self.__width = width
         self.__height = height
+
+    def area(self):
+        """Gets area of rectangle
+
+        Returns:
+            int: area of rectangle
+        """
+        return self.__width * self.__height
+
+    def __str__(self):
+        """Informal string representation of triangle
+
+        Returns:
+            str: String representation
+        """
+        return f"[Rectangle] {self.__width}/{self.__height}"
