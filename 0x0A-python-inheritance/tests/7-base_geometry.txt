@@ -1,0 +1,41 @@
+""" This text file tests the 7-base_geometry.py module"""
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+
+>>> moduleDocLen = len(__import__('7-base_geometry').__doc__)
+>>> moduleDocLen > 1
+True
+
+>>> classDocLen = len(BaseGeometry.__doc__)
+>>> classDocLen > 1
+True
+
+>>> integer_validator_doc_len = len(BaseGeometry.integer_validator.__doc__)
+>>> integer_validator_doc_len > 1
+True
+
+>>> area_doc_len = len(BaseGeometry.area.__doc__)
+>>> area_doc_len > 1
+True
+
+
+>>> bg = BaseGeometry()
+
+>>> bg.integer_validator("name", "John")
+Traceback (most recent call last):
+...
+TypeError: name must be an integer
+
+
+>>> bg.integer_validator("age", 0)
+Traceback (most recent call last):
+...
+TypeError: age must be greater than 0
+
+
+>>> bg.integer_validator("my int", 8)
+
+
+
+
