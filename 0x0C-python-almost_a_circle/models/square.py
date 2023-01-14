@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """This module implements the square class"""
 
-Rectangle = __import__('rectangle').Rectangle
+from .rectangle import Rectangle
 
 
 class Square(Rectangle):

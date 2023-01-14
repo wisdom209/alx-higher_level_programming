@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """This module implements Rectangle class"""
-Base = __import__('base').Base
+from .base import Base
 
 
 class Rectangle(Base):
