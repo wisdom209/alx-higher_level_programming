@@ -4,7 +4,6 @@ import unittest
 import unittest.mock
 from contextlib import redirect_stdout
 from io import StringIO
-# from models.rectangle import Rectangle
 from models.square import Square
 from models.base import Base
 
@@ -89,3 +88,9 @@ class TestSquare(unittest.TestCase):
         s1.update(size=7, id=89, y=1)
         self.assertEqual(
             s1.__str__(), f"[Square] (89) 12/1 - 7")
+
+    def test_to_dictionary(self):
+        """test to dictionary"""
+        s1 = Square(10, 2, 1)
+        self.assertEqual(s1.to_dictionary(), {
+                         'id': Base().id - 1, 'x': 2, 'size': 10, 'y': 1})

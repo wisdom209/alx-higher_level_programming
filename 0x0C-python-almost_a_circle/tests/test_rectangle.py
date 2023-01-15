@@ -6,6 +6,7 @@ from contextlib import redirect_stdout
 from io import StringIO
 from models.rectangle import Rectangle
 from models.base import Base
+import json
 
 
 class TestRectangle(unittest.TestCase):
@@ -121,3 +122,63 @@ class TestRectangle(unittest.TestCase):
         r1.update(x=1, height=2, y=3, width=4)
         self.assertEqual(
             r1.__str__(), f"[Rectangle] (89) 1/3 - 4/2")
+
+    def test_to_dictionary(self):
+        """test to dictionary"""
+        r1 = Rectangle(10, 2, 1, 9)
+        self.assertEqual(r1.to_dictionary(), {
+                         'x': 1, 'y': 9, 'id': Base().id - 1,
+                         'height': 2, 'width': 10})
+
+    def test_to_json_string(self):
+        """test to json string"""
+        r1 = Rectangle(10, 7, 2, 8)
+        dictionary = r1.to_dictionary()
+        self.assertEqual(
+            dictionary, {"x": 2, "width": 10, "id": Base().id - 1,
+                         "height": 7, "y": 8})
+
+    def test_save_to_file(self):
+        """test save to file"""
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        Rectangle.save_to_file([r1, r2])
+
+        with open("Rectangle.json", "r") as file:
+            my_list = json.loads(file.read())
+            self.assertEqual(my_list, [{"y": 8, "x": 2,
+                                        "id": int(f"{Base().id - 2}"),
+                                        "width": 10, "height": 7},
+                                       {"y": 0, "x": 0,
+                                        "id": int(f"{Base().id - 2}"),
+                                        "width": 2, "height": 4}])
+
+    def test_from_json_string(self):
+        """test from json string"""
+        list_input = [
+            {'id': 89, 'width': 10, 'height': 4},
+            {'id': 7, 'width': 1, 'height': 7}
+        ]
+        json_list_input = Rectangle.to_json_string(list_input)
+        list_output = Rectangle.from_json_string(json_list_input)
+        self.assertEqual(list_output, [{'height': 4, 'width': 10, 'id': 89}, {
+                         'height': 7, 'width': 1, 'id': 7}])
+
+    def test_create(self):
+        """test returning an instance"""
+        r1 = Rectangle(3, 5, 1)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertEqual(
+            r2.__str__(), f"[Rectangle] ({Base().id - 2}) 1/0 - 3/5")
+
+    def test_load_from_file(self):
+        """test loading json from file"""
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        list_rectangles_input = [r1, r2]
+        Rectangle.save_to_file(list_rectangles_input)
+        list_rectangles_output = Rectangle.load_from_file()
+        self.assertEqual([x.__str__() for x in list_rectangles_output],
+                         [f"[Rectangle] ({Base().id - 4}) 2/8 - 10/7",
+                          f"[Rectangle] ({Base().id - 4}) 0/0 - 2/4"])
