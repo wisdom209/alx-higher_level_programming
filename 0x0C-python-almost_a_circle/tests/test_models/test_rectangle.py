@@ -182,3 +182,25 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual([x.__str__() for x in list_rectangles_output],
                          [f"[Rectangle] ({Base().id - 4}) 2/8 - 10/7",
                           f"[Rectangle] ({Base().id - 4}) 0/0 - 2/4"])
+
+    def test_load_from_csv(self):
+        """Test load from csv"""
+
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        list_rectangles_input = [r1, r2]
+
+        Rectangle.save_to_file_csv(list_rectangles_input)
+
+        list_rectangles_output = Rectangle.load_from_file_csv()
+        self.assertEqual(list_rectangles_output[0].id, r1.id)
+        self.assertEqual(list_rectangles_output[0].width, 10)
+        self.assertEqual(list_rectangles_output[0].height, 7)
+        self.assertEqual(list_rectangles_output[0].x, 2)
+
+        self.assertEqual(list_rectangles_output[1].width, 2)
+        self.assertEqual(list_rectangles_output[1].height, 4)
+        self.assertEqual(list_rectangles_output[1].x, 0)
+
+    def test_save_to_file_csv(self):
+        pass
