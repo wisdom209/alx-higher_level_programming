@@ -112,23 +112,55 @@ class Rectangle(Base):
             if 'id' in kwargs:
                 self.id = kwargs['id']
             if 'width' in kwargs:
+                if type(kwargs['width']) is not int:
+                    raise (TypeError("width must be an integer"))
+                if kwargs['width'] <= 0:
+                    raise ValueError("width must be > 0")
                 self.__width = kwargs['width']
             if 'height' in kwargs:
+                if type(kwargs['height']) is not int:
+                    raise (TypeError("height must be an integer"))
+                if kwargs["height"] <= 0:
+                    raise ValueError("height must be > 0")
                 self.__height = kwargs['height']
             if 'x' in kwargs:
+                if type(kwargs['x']) is not int:
+                    raise TypeError("x must be an integer")
+                if kwargs['x'] < 0:
+                    raise ValueError("x must be >= 0")
                 self.__x = kwargs['x']
             if 'y' in kwargs:
+                if type(kwargs['y']) is not int:
+                    raise TypeError("y must be an integer")
+                if kwargs['y'] < 0:
+                    raise ValueError("y must be >= 0")
                 self.__y = kwargs['y']
         else:
             if (tuple_range >= 1):
                 self.id = args[0]
             if (tuple_range >= 2):
+                if type(args[1]) is not int:
+                    raise (TypeError("width must be an integer"))
+                if args[1] <= 0:
+                    raise ValueError("width must be > 0")
                 self.__width = args[1]
             if (tuple_range >= 3):
+                if type(args[2]) is not int:
+                    raise (TypeError("height must be an integer"))
+                if args[2] <= 0:
+                    raise ValueError("height must be > 0")
                 self.__height = args[2]
             if (tuple_range >= 4):
+                if type(args[3]) is not int:
+                    raise TypeError("x must be an integer")
+                if args[3] < 0:
+                    raise ValueError("x must be >= 0")
                 self.__x = args[3]
             if (tuple_range >= 5):
+                if type(args[4]) is not int:
+                    raise TypeError("y must be an integer")
+                if args[4] < 0:
+                    raise ValueError("y must be >= 0")
                 self.__y = args[4]
 
     def to_dictionary(self):
