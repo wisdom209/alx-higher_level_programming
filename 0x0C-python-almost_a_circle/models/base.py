@@ -74,6 +74,7 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
+        """saves data in csv format to file"""
         with open(f"{cls.__name__}.csv", mode='w', newline='') as file:
             if list_objs is None or list_objs == []:
                 file.write('[]')
