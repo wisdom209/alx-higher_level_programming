@@ -109,3 +109,39 @@ class Base:
                     return [Square(x[1], x[2], x[3], x[0]) for x in final_list]
         except:
             return []
+
+    def draw(list_rectangles, list_squares):
+        """draw rectangle or square"""
+        import turtle
+        turtle.Screen().bgcolor("blue")
+        sk = turtle.Turtle()
+        sk.penup()
+        sk.hideturtle()
+        sk.goto(-200, 200)
+        sk.showturtle()
+        sk.pendown()
+        max_rect_height = 0
+        for rect in list_rectangles:
+            for i in range(2):
+                sk.pendown()
+                sk.forward(rect.width)
+                sk.right(90)
+                sk.forward(rect.height)
+                if max_rect_height >= rect.height:
+                    max_rect_height = rect.height
+                sk.right(90)
+            sk.penup()
+            sk.forward(rect.width + 20)
+        
+        sk.right(90)
+        sk.forward(max_rect_height + 50)
+        sk.goto(0, 0)
+        for sq in list_squares:
+            size = sq.size
+            for i in range(4):
+                sk.pendown()
+                sk.forward(size)
+                sk.right(90)
+            sk.penup()
+            sk.forward(size + 50)
+           
