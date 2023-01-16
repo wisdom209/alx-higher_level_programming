@@ -32,7 +32,8 @@ class Base:
             json_list = [x.to_dictionary() for x in list_objs]
 
         with open(f"{cls.__name__}.json", mode='w', encoding='utf-8') as file:
-            json.dump(json_list, file)
+            json_str = cls.to_json_string(json_list)
+            file.write(json_str)
 
     @staticmethod
     def from_json_string(json_string):
