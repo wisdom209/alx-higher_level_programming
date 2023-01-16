@@ -50,9 +50,9 @@ class Base:
         new_cls = None
 
         if (cls.__name__ == 'Square'):
-            new_cls = Square(4, 4, 6)
+            new_cls = Square(4)
         elif (cls.__name__ == 'Rectangle'):
-            new_cls = Rectangle(2, 4, 6, 8)
+            new_cls = Rectangle(2, 4)
 
         new_cls.update(**dictionary)
         return new_cls
