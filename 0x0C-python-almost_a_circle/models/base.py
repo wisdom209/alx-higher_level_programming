@@ -60,7 +60,8 @@ class Base:
     def load_from_file(cls):
         """returns a list instance from a json file"""
         try:
-            with open(f"{cls.__name__}.json", mode='r', encoding='utf-8') as file:
+            with open(f"{cls.__name__}.json",
+                      mode='r', encoding='utf-8') as file:
                 if file is None:
                     return []
                 my_list_str = file.read()
@@ -68,7 +69,7 @@ class Base:
 
                 return [cls.create(**an_instance_dict)
                         for an_instance_dict in my_list]
-        except:
+        except Exception:
             return []
 
     @classmethod
@@ -89,7 +90,8 @@ class Base:
     def load_from_file_csv(cls):
         """returns a list instance from a file"""
         try:
-            with open(f"{cls.__name__}.csv", mode='r', encoding='utf-8', newline='') as file:
+            with open(f"{cls.__name__}.csv", mode='r',
+                      encoding='utf-8', newline='') as file:
                 if file is None:
                     return []
                 reader = csv.reader(file, quoting=csv.QUOTE_NONNUMERIC)
@@ -102,13 +104,15 @@ class Base:
                     from models.rectangle import Rectangle
                     for i in final_list:  # just to pass checker
                         r = Rectangle(2, 3)
-                    return [Rectangle(x[1], x[2], x[3], x[4], x[0]) for x in final_list]
+
+                    return [Rectangle(x[1], x[2], x[3], x[4], x[0])
+                            for x in final_list]
                 else:
                     from models.square import Square
                     for i in final_list:  # just to pass checker
                         r = Square(5)
                     return [Square(x[1], x[2], x[3], x[0]) for x in final_list]
-        except:
+        except Exception:
             return []
 
     def draw(list_rectangles, list_squares):
@@ -133,7 +137,7 @@ class Base:
                 sk.right(90)
             sk.penup()
             sk.forward(rect.width + 20)
-        
+
         sk.right(90)
         sk.forward(max_rect_height + 50)
         sk.goto(0, 0)
@@ -145,4 +149,3 @@ class Base:
                 sk.right(90)
             sk.penup()
             sk.forward(size + 50)
-           
