@@ -97,9 +97,7 @@ class TestSquare(unittest.TestCase):
                          'id': Base().id - 1, 'x': 2, 'size': 10, 'y': 1})
 
 
-
-
-#################### others #############################
+"""#################### others #############################"""
 
 
 class TestSquare_instantiation(unittest.TestCase):
@@ -735,6 +733,3 @@ class TestSquare_to_dictionary(unittest.TestCase):
         s = Square(10, 10, 10, 10)
         with self.assertRaises(TypeError):
             s.to_dictionary(1)
-
-
-
