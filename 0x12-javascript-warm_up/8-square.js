@@ -1,5 +1,6 @@
 #!/usr/bin/node
 const size = Number(process.argv[2]);
+
 let i = 0;
 let j = 0;
 if (size) {
