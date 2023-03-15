@@ -1,5 +1,5 @@
 #!/usr/bin/node
-oldDict = require('./101-data.js')
+const oldDict = require('./101-data.js').dict;
 const newDict = {};
 
 let i = 0;
