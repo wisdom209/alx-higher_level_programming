@@ -4,6 +4,8 @@ from sqlalchemy import Column, String, Integer
 from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()
+
+
 class State(Base):
     """class representing state table"""
     __tablename__ = 'states'
