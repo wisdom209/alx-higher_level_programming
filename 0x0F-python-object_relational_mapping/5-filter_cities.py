@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """Select States Module"""
 import sys
 import MySQLdb
@@ -17,8 +17,8 @@ if __name__ == '__main__':
              LIKE BINARY %s ORDER BY cities.id ASC"
     cursor.execute(sqlquery, (state_name,))
     rows = cursor.fetchall()
-    for i in range(cursor.rowcount):
-        if (rows[i] is not None):
+    if rows is not None:
+        for i in range(cursor.rowcount):
             if (i == cursor.rowcount - 1):
                 print(rows[i][0])
             else:
