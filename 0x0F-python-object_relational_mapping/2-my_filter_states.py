@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """Select States Module"""
 import sys
 import MySQLdb
