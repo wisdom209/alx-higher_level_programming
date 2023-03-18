@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """Creates a state table"""
 import sys
 from sqlalchemy import create_engine, Column, String, Integer
