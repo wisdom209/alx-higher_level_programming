@@ -18,10 +18,11 @@ if __name__ == '__main__':
     cursor.execute(sqlquery, (state_name,))
     rows = cursor.fetchall()
     for i in range(cursor.rowcount):
-        if (i == cursor.rowcount - 1):
-            print(rows[i][0])
-        else:
-            print(rows[i][0], end=", ")
+        if (rows[i] is not None):
+            if (i == cursor.rowcount - 1):
+                print(rows[i][0])
+            else:
+                print(rows[i][0], end=", ")
 
     cursor.close()
     db.close()
