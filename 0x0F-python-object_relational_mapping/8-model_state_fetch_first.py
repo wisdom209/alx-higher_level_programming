@@ -1,5 +1,5 @@
-#!/usr/bin/env python3
-"""Fetches all the states"""
+#!/usr/bin/python3
+"""Fetches first state"""
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -7,7 +7,7 @@ from model_state import Base, State
 
 if __name__ == '__main__':
     """
-    Access to the database and get the states
+    Access to the database and get the first state
     from the database.
     """
     db_username = sys.argv[1]
