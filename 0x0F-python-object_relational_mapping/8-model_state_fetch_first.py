@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """Fetches first state"""
 import sys
 from sqlalchemy import create_engine
@@ -20,8 +20,8 @@ if __name__ == '__main__':
 
     Session = sessionmaker(bind=engine)
     session = Session()
-    states = session.query(State).order_by(State.id).first()
-    for state in states:
+    state = session.query(State).order_by(State.id).first()
+    if (state):
         print(f"{state.id}: {state.name}")
-    if states.count() == 0:
+    else:
         print()
