@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """adds a new state"""
 import sys
 from sqlalchemy import create_engine
