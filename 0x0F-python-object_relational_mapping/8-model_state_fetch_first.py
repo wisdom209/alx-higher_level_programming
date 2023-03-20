@@ -22,4 +22,6 @@ if __name__ == '__main__':
     session = Session()
     states = session.query(State).order_by(State.id).limit(1)
     for state in states:
-        print(f"{state.id}: {state.name}")  # getting table data
+        print(f"{state.id}: {state.name}")
+    if states.count() == 0:
+        print()
