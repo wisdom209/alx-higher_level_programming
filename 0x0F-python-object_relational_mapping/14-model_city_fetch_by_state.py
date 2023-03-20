@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""adds a new state"""
+"""join state and city and print the new table"""
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -8,8 +8,9 @@ from model_city import City
 
 if __name__ == '__main__':
     """
-    Access to the database and adds a
-    new state to the database.
+    Access to the database and print
+    state.id (city.id) city.name
+    to the database.
     """
     db_username = sys.argv[1]
     db_pass = sys.argv[2]
