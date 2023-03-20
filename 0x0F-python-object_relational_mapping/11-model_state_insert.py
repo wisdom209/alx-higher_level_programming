@@ -7,7 +7,7 @@ from model_state import Base, State
 
 if __name__ == '__main__':
     """
-    Access to the database and adds a 
+    Access to the database and adds a
     new state to the database.
     """
     db_username = sys.argv[1]
