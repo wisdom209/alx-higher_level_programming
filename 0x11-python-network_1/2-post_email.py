@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Make a post request"""
 import urllib.request
-import urllib.parse
 import sys
 
 if __name__ == '__main__':
