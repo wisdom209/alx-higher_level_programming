@@ -2,6 +2,7 @@
 """prints the X-Request-Id" header"""
 import sys
 import urllib.request
+import urllib.parse
 
 if __name__ == '__main__':
     """gets the header"""

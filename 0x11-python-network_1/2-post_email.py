@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """Make a post request"""
+import sys
+import urllib.request
 
 
 if __name__ == '__main__':
     """Makes a post request"""
-    import urllib.request
-    import sys
     url = sys.argv[1]
     data = {"email": f"{sys.argv[2]}"}
     data = urllib.parse.urlencode(data).encode('ascii')
