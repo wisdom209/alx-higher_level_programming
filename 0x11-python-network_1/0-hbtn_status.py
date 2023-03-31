@@ -11,5 +11,5 @@ if __name__ == '__main__':
         print("Body response:")
         print(f"	- type: {type(content)}")
         print(f"	- content: {content}")
-        if 'utf-8' in response.info()['Content-Type']:
+        if 'utf-8' in response.info().get('Content-Type'):
             print(f"	- utf8 content: OK")
