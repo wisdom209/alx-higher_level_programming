@@ -9,7 +9,6 @@ if __name__ == '__main__':
     with urllib.request.urlopen(request(url)) as response:
         content = response.read()
         print("Body response:")
-        print(f"	- type: {type(content)}")
-        print(f"	- content: {content}")
-        if 'utf-8' in response.info().get('Content-Type'):
-            print(f"	- utf8 content: OK")
+        print(f"\t- type: {type(content)}")
+        print(f"\t- content: {content}")
+        print(f"\t- utf8 content: {content.decode('utf-8')}")
