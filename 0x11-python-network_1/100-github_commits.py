@@ -3,12 +3,13 @@
 import requests
 import sys
 
-repo = sys.argv[1]
-owner = sys.argv[2]
-url = f"https://api.github.com/repos/{owner}/{repo}/commits?\
-            author={owner}&sort=author-date&direction=desc&per_page=10"
+
 if __name__ == "__main__":
     """Get the latest 10 commits"""
+    repo = sys.argv[1]
+    owner = sys.argv[2]
+    url = f"https://api.github.com/repos/{owner}/{repo}/commits?\
+            author={owner}&sort=author-date&direction=desc&per_page=10"
     response = requests.get(url)
     json = response.json()
     num = 0
