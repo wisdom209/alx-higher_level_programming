@@ -15,7 +15,7 @@ if __name__ == "__main__":
     num = 0
     for i in json:
         sha = i.get('sha')
-        author = i.get("commit").get("committer").get("name")
+        author = i.get("commit").get("author").get("name")
         if (sha is not None):
             print(f"{sha}: {author}")
         num += 1
