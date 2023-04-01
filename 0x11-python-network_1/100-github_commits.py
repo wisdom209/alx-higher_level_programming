@@ -17,7 +17,7 @@ if __name__ == "__main__":
         sha = i.get('sha')
         author = i.get("commit").get("committer").get("name")
         if (sha is not None):
-            print(f"{sha} {author}")
+            print(f"{sha}: {author}")
         num += 1
         if (num == 10):
             break
