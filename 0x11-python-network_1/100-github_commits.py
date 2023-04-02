@@ -6,12 +6,12 @@ as command line arguments"""
 
 
 if __name__ == '__main__':
-    import requests
-    import sys
     """
     Lists 10 commits from a github repository using the github
     API by : '<sha>: <author name>'
     """
+    import requests
+    import sys
     repo = sys.argv[1]
     owner = sys.argv[2]
     url = f'https://api.github.com/repos/{owner}/{repo}/commits?\
