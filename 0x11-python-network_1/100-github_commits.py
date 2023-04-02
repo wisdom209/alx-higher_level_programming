@@ -1,15 +1,9 @@
 #!/usr/bin/python3
-"""
-This module contains script that uses the github api to display 10 commits
-from a github repository. The repo name and owner name are passed
-as command line arguments"""
+""" This module contains """
 
 
 if __name__ == '__main__':
-    """
-    Lists 10 commits from a github repository using the github
-    API by : '<sha>: <author name>'
-    """
+    """Lists 10 commits from a github"""
     import requests
     import sys
     repo = sys.argv[1]
