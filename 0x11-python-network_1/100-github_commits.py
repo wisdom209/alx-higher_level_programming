@@ -24,5 +24,5 @@ if __name__ == '__main__':
             sha = f"{item.get('sha')}: "
             name = item.get('commit').get('author').get('name')
             print(sha + name)
-    except requests.exceptions.HTTPError as err:
+    except Exception as e:
         pass
