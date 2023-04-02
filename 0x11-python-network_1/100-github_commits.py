@@ -6,6 +6,7 @@ as command line arguments"""
 
 
 if __name__ == '__main__':
+    """python script"""
     import requests
     import sys
 
