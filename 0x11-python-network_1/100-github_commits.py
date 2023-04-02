@@ -7,14 +7,15 @@ as command line arguments"""
 
 if __name__ == '__main__':
     import requests
-    from sys import argv
+    import sys
 
     def get_commits():
         """
         Lists 10 commits from a github repository using the github
         API by : '<sha>: <author name>'
         """
-        _, repo, owner = argv
+        repo = sys.argv[1]
+        owner = sys.argv[2]
         url = f'https://api.github.com/repos/{owner}/{repo}/commits?\
         per_page=10'
         try:
@@ -23,7 +24,7 @@ if __name__ == '__main__':
             data = res.json()
             for item in data:
                 sha = f"{item.get('sha')}: "
-                name = f"{item.get('commit').get('author').get('name')}"
+                name = item.get('commit').get('author').get('name')
                 print(sha + name)
         except requests.exceptions.HTTPError as err:
             pass
