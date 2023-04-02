@@ -20,6 +20,6 @@ if __name__ == '__main__':
     # res.raise_for_status()
     data = res.json()
     for item in data:
-        sha = f"{item.get('sha')}: "
+        sha = item.get('sha')
         name = item.get('commit').get('author').get('name')
-        print(sha + name)
+        print(sha + ": " + name)
