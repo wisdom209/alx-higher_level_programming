@@ -1,1 +1,1 @@
-0x0B. Python - Input/Output
+# input and output in Python
