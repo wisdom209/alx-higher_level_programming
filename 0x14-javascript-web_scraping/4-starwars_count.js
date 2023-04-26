@@ -24,6 +24,6 @@ if (process.argv.length >= 3) {
         }
       }
     }
-    console.log(movieCount);
+    if (movieCount > 0) { console.log(movieCount); }
   });
 }
