@@ -1,3 +1,5 @@
 package*
 pretty*
 node*
+vscode
+.vscode
