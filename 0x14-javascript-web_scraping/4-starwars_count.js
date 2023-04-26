@@ -5,7 +5,7 @@ const request = require('request');
 const BASEURL = 'https://swapi-api.alx-tools.com/api/';
 
 if (process.argv.length >= 3) {
-  const filmApi = process.argv[2]
+  const filmApi = process.argv[2];
   const wedgeApi = BASEURL + 'people/18/';
   let movieCount = 0;
 
