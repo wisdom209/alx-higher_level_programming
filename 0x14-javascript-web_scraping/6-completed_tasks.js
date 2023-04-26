@@ -26,7 +26,7 @@ if (process.argv.length >= 3) {
       let jsonString = JSON.stringify(newObj, null, 2);
       jsonString = jsonString.slice(3, -2);
       jsonString = '{' + jsonString + ' }';
-      jsonString.replace(/"/g, "'");
+      jsonString = jsonString.replace(/"/g, "'");
       console.log(jsonString);
     }
   });
