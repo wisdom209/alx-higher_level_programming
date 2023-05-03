@@ -7,8 +7,7 @@ toggleHeader.on('click', () => {
   if (headerClass === 'green') {
     headerElement.removeClass('green');
     headerElement.addClass('red');
-  }
-  else {
+  } else {
     headerElement.removeClass('red');
     headerElement.addClass('green');
   }
