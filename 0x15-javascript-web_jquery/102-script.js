@@ -8,7 +8,6 @@ $(document).ready(() => {
     $('#hello').text('Loading . . .');
     language = $('#language_code').val();
     $.get(proxyendpoint + language, (data) => {
-      console.log(data);
       $('#hello').text(data.hello);
     });
   });
